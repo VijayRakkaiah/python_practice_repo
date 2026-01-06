@@ -1,55 +1,48 @@
 # Python program to demonstrate
 # operator overloading
 
-
-class BitwiseOperatorOverloading():
+class BitwiseNumber:
     def __init__(self, value):
         self.value = value
 
     def __and__(self, obj):
         print("And operator overloaded")
-        if isinstance(obj, Geek):
+        if isinstance(obj, BitwiseNumber):
             return self.value & obj.value
-        else:
-            raise ValueError("Must be a object of class Geek")
+        raise TypeError("Operand must be BitwiseNumber")
 
     def __or__(self, obj):
         print("Or operator overloaded")
-        if isinstance(obj, Geek):
+        if isinstance(obj, BitwiseNumber):
             return self.value | obj.value
-        else:
-            raise ValueError("Must be a object of class Geek")
+        raise TypeError("Operand must be BitwiseNumber")
 
     def __xor__(self, obj):
         print("Xor operator overloaded")
-        if isinstance(obj, Geek):
+        if isinstance(obj, BitwiseNumber):
             return self.value ^ obj.value
-        else:
-            raise ValueError("Must be a object of class Geek")
+        raise TypeError("Operand must be BitwiseNumber")
 
     def __lshift__(self, obj):
         print("lshift operator overloaded")
-        if isinstance(obj, Geek):
+        if isinstance(obj, BitwiseNumber):
             return self.value << obj.value
-        else:
-            raise ValueError("Must be a object of class Geek")
+        raise TypeError("Operand must be BitwiseNumber")
 
     def __rshift__(self, obj):
         print("rshift operator overloaded")
-        if isinstance(obj, Geek):
+        if isinstance(obj, BitwiseNumber):
             return self.value >> obj.value
-        else:
-            raise ValueError("Must be a object of class Geek")
+        raise TypeError("Operand must be BitwiseNumber")
 
     def __invert__(self):
         print("Invert operator overloaded")
         return ~self.value
-
-
+        
 # Driver's code
 if __name__ == "__main__":
-    a = BitwiseOperatorOverloading(10)
-    b = BitwiseOperatorOverloading(12)
+    a = BitwiseNumber(10)
+    b = BitwiseNumber(12)
     print(a & b)
     print(a | b)
     print(a ^ b)
@@ -69,4 +62,5 @@ if __name__ == "__main__":
 # rshift operator overloaded
 # 0
 # Invert operator overloaded
+
 # -11
